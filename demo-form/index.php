@@ -24,8 +24,8 @@
 // combobox
 var jq_combobox = $('#combobox');
 jq_combobox.combobox({
-    width: 120,
-    btnSize: 'lg',
+    width: 'full',
+    btnSize: 'default',
     valueField: 'id',
     textField: 'name',
     onSelect: function(record) {console.log(record)},
