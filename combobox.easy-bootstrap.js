@@ -25,7 +25,7 @@
         'sm':       { caret_margin: '8px',   font_size: '12px', },
         'xs':       { caret_margin: '6px',   font_size: '12px', },
         'full':     { caret_margin: '1%',   font_size: '14px', },
-    }
+    };
 
     /**
      * 初始化插件
@@ -35,7 +35,7 @@
         this._options = $.extend(this._defaults, args);
 
         this.insertComboboxBody(jqObject);
-    }
+    };
 
     /**
      * 插入dom，绑定数据与事件
@@ -73,7 +73,7 @@
             .wrap('<div class="dropdown" />')
             .before(_btn_html)
             .before(_jq_ul);
-    }
+    };
 
     /**
      * 生成列表dom（不插入）
@@ -119,7 +119,7 @@
         }
 
         return _jq_ul;
-    }
+    };
 
     /**
      * 加载本地列表数据
@@ -134,14 +134,14 @@
             .parent().after(_jq_ul);
 
         return jqObject;
-    }
+    };
 
     /**
      * 获取当前Combobox的值
      */
     Combobox.prototype.getValue = function() {
         return this._selectedRow[this._options.valueField];
-    }
+    };
 
     /**
      * 设置Combobox的值
@@ -152,21 +152,21 @@
         $('#'+this._btnId+' > .dropdown-text').html(_text);
 
         return jqObject;
-    }
+    };
 
     /**
      * 返回加载的数据
      */
     Combobox.prototype.getData = function() {
         return this._options.data;
-    }
+    };
 
     /**
      * 返回选项
      */
     Combobox.prototype.options = function() {
         return this._options;
-    }
+    };
 
     $.fn.extend({
         combobox: function() {
