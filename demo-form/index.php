@@ -28,7 +28,7 @@ jq_combobox.combobox({
     btnSize: 'default',
     valueField: 'id',
     textField: 'name',
-    onSelect: function(record) {console.log(record)},
+    onSelect: function(record) {alert(record['name']);},
     data: [
         {
             id: 100,
