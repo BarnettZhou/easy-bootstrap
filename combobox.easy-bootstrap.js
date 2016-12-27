@@ -11,11 +11,6 @@
             onSelect: function(record) {},
         };
 
-        this._btnId        = '_eb_combobox_btn_' + this.flag;
-        this._ulId         = '_eb_combobox_ul_' + this.flag;
-        this._baseStyle    = '';
-        this._selectedRow  = {};
-        this._valueRecord  = {};
         this.init(args, jqObject);
     }
 
@@ -32,6 +27,13 @@
      */
     Combobox.prototype.init = function(args, jqObject) {
         this.flag = String(parseInt(Date.parse(new Date()) / 1000)) + '_' + String(parseInt(Math.random() * 1000));
+
+        this._btnId        = '_eb_combobox_btn_' + this.flag;
+        this._ulId         = '_eb_combobox_ul_' + this.flag;
+        this._baseStyle    = '';
+        this._selectedRow  = {};
+        this._valueRecord  = {};
+
         this._options = $.extend(this._defaults, args);
 
         this.insertComboboxBody(jqObject);
