@@ -51,6 +51,11 @@
         jqObject.wrap('<div id="'+this._groupId+'" class="input-group" />').after(_jq_span);
     };
 
+    Searchbox.prototype.getValue = function() {
+        var jqObject = arguments[1];
+        return jqObject.val();
+    }
+
     $.fn.extend({
         searchbox: function() {
             if (!this.Searchbox) {
@@ -58,11 +63,11 @@
                 return this;
             } else {
                 var _funcName = arguments[0];
-                if (typeof(this.Combobox[_funcName]) != 'function') {
+                if (typeof(this.Searchbox[_funcName]) != 'function') {
                     console.log('searchbox doesn\'t have function called \''+_funcName+'\'');
                     return false;
                 } else {
-                    return this.Combobox[_funcName](arguments[1], this);
+                    return this.Searchbox[_funcName](arguments[1], this);
                 }
             }
         }
