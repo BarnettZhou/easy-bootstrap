@@ -23,6 +23,16 @@
         this._btnId = '_eb_searchbox_btn_' + this.flag;
         this._options = $.extend(this._defaults, args);
 
+        // 监视文本框的回车事件
+        var _this = this;
+        jqObject.on('keypress', function(event) {
+            if (event.keyCode == '13' || event.which == '13') {
+                var _value = jqObject.val();
+                var _name = jqObject.attr('name');
+                _this._options.searcher(_value, _name);
+            }
+        });
+
         this.insertSearchboxBody(jqObject);
     };
 
@@ -94,6 +104,13 @@
     Searchbox.prototype.getName = function() {
         var jqObject = arguments[1];
         return jqObject.attr('name');
+    }
+
+    /**
+     * 获取设置值
+     */
+    Searchbox.prototype.options = function() {
+        return this._options;
     }
 
     $.fn.extend({
