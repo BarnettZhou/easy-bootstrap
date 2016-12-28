@@ -7,7 +7,8 @@
 <script src="/src/jquery.min.js"></script>
 <script src="/src/bootstrap-3.3.0-dist/js/bootstrap.min.js"></script>
 <!-- easy-bootstrap -->
-<script type="text/javascript" src="/combobox.easy-bootstrap.js?v=<?=time()?>"></script>
+<script type="text/javascript" src="/easy-bootstrap/easy-bootstrap.js?v=<?=time()?>"></script>
+<script type="text/javascript" src="/easy-bootstrap/combobox.easy-bootstrap.js?v=<?=time()?>"></script>
 <title>Demo</title>
 </head>
 <body>
