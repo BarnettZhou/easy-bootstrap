@@ -3,10 +3,10 @@
 
     var Searchbox = function(args, jqObject) {
         this._defaults = {
-            width: 0,       // 组件宽度，单位px，默认0
-            height: 0,      // 组件高度，单位px，默认0
-            prompt: '',     // 提示信息
-            value: '',      // 默认值
+            width: 0,           // 组件宽度，单位px，默认0，`full`会占满整个父元素
+            size: 'default',    // 组件大小，default默认，lg大，sm小
+            prompt: '',         // 提示信息
+            value: '',          // 默认值
             searcher: function(value, name) {console.log(arguments)},
         };
 
@@ -30,15 +30,29 @@
      * 插入dom
      */
     Searchbox.prototype.insertSearchboxBody = function(jqObject) {
-        var _this = this;
-        // set width
-        // todo...
+        var _this   = this;
+        var size    = this._options.size;
+        var width   = this._options.width;
+
+        // input/btn size
+        var _input_class    = 'form-control';
+        var _btn_class      = 'btn btn-default'
+        if (size != 'default') {
+            _input_class += ' input-' + size;
+            _btn_class += ' btn-' + size;
+        }
+
+        // width
+        var _container_style = '';
+        if (width != 'full' && parseInt(width)) {
+            _container_style = 'style="width:'+String(width)+'px;"';
+        }
 
         var prompt = this._options.prompt;
-        jqObject.attr('placeholder', prompt).attr('type', 'text').addClass('form-control');
+        jqObject.attr('placeholder', prompt).attr('type', 'text').addClass(_input_class);
 
         var _span  = '<span class="input-group-btn">';
-            _span += '<a href="javascript:void(0);" class="btn btn-default" type="button" id="'+this._btnId+'">';
+            _span += '<a href="javascript:void(0);" class="'+_btn_class+'" type="button" id="'+this._btnId+'">';
             _span += '<span class="glyphicon glyphicon-search"></span></a></span>';
 
         var _jq_span = $(_span);
@@ -48,9 +62,12 @@
             _this._options.searcher(_value, _name);
         });
 
-        jqObject.wrap('<div id="'+this._groupId+'" class="input-group" />').after(_jq_span);
+        jqObject.wrap('<div id="'+this._groupId+'" class="input-group" '+_container_style+'/>').after(_jq_span);
     };
 
+    /**
+     * 获取Searchbox中的值
+     */
     Searchbox.prototype.getValue = function() {
         var jqObject = arguments[1];
         return jqObject.val();
