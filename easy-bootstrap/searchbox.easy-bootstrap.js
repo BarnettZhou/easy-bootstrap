@@ -73,6 +73,29 @@
         return jqObject.val();
     }
 
+    /**
+     * 设置搜索值
+     */
+    Searchbox.prototype.setValue = function(value, jqObject) {
+        jqObject.val(value);
+        return jqObject;
+    }
+
+    /**
+     * 返回文本框对象
+     */
+    Searchbox.prototype.textbox = function() {
+        return arguments[1];
+    }
+
+    /**
+     * 获取文本框的name
+     */
+    Searchbox.prototype.getName = function() {
+        var jqObject = arguments[1];
+        return jqObject.attr('name');
+    }
+
     $.fn.extend({
         searchbox: function() {
             if (!this.Searchbox) {
