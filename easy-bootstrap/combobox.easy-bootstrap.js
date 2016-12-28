@@ -52,7 +52,6 @@
         // 组件宽度为100%，下拉框设置及按钮宽度都设置为100%
         if (this._options.width == 'full' || !this._options.width) {
             this._baseStyle += 'min-width:100%;';
-            if (true) {}
         } else {
             this._baseStyle += 'min-width:' + String(this._options.width) + 'px;';
         }
