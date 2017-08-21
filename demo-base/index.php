@@ -1,25 +1,10 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="/src/bootstrap-3.3.0-dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="/src/bootstrap-3.3.0-dist/css/bootstrap-theme.min.css">
-<script src="/src/jquery.min.js"></script>
-<script src="/src/bootstrap-3.3.0-dist/js/bootstrap.min.js"></script>
-<!-- easy-bootstrap -->
-<script type="text/javascript" src="/easy-bootstrap/easy-bootstrap.js?v=<?=time()?>"></script>
-<!-- searchbox -->
-<script type="text/javascript" src="/easy-bootstrap/searchbox.easy-bootstrap.js?v=<?=time()?>"></script>
-<!-- progressbar -->
-<script type="text/javascript" src="/easy-bootstrap/progressbar.easy-bootstrap.js?v=<?=time()?>"></script>
-<title>Demo</title>
-</head>
-<body>
+<?php require_once '../lib/Demo.php';?>
+<?php showHeader();?>
 
 <div class="container" style="width:800px;margin-top:auto;">
     <!-- searchbox -->
     <div class="demo-item">
-        <h1>searchbox</h1>
+        <h1>searchbox - 搜索框</h1>
         <input name="city" id="searchbox" value="">
     </div>
     <div class="demo-item">
@@ -33,7 +18,7 @@
     </div>
 
     <div class="demo-item">
-        <h1>progressbar</h1>
+        <h1>progressbar - 进度条</h1>
         <div id="progressbar"></div>
     </div>
     <div class="demo-item">
@@ -64,10 +49,9 @@ jq_progressbar.progressbar({
     width: 300,
     value: 70,
     onChange: function() {
-        console.log(arguments[1]);
+        console.log(arguments);
     }
 })
 </script>
 
-</body>
-</html>
+<?php showFooter(); ?>
